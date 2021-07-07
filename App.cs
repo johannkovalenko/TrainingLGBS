@@ -6,5 +6,6 @@ class App
     {
         Console.WriteLine("First Line");
         Console.WriteLine("Second Line");
+        Console.WriteLine("Third Line");
     }
 }
