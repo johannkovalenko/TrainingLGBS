@@ -1,7 +1,10 @@
+using System;
+
 class App
 {
     public static void Main()
     {
-        System.Console.WriteLine("First Line");
+        Console.WriteLine("First Line");
+        Console.WriteLine("Second Line");
     }
 }
