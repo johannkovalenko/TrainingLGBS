@@ -1,0 +1,1 @@
+"C:\Users\u540929\OneDrive - Lufthansa Group\johann\GCC\bin\g++.exe" -Wall app.cpp birdchant\mockingbird.cpp birdchant\sparrow.cpp -std=c++17 -o app

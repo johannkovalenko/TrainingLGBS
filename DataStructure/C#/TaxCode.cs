@@ -1,0 +1,6 @@
+enum TaxCode
+{
+    LOWINCOME,
+    MIDDLEINCOME,
+    HIGHINCOME
+}
