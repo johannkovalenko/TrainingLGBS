@@ -1,0 +1,14 @@
+{
+    "runtimeOptions": {
+      "tfm": "net5.0",
+      "framework": {
+        "name": "Microsoft.NET.SDK",
+        "version": "5.0"
+      },
+      "configProperties": {
+        "System.GC.Concurrent": false,
+        "System.Threading.ThreadPool.MinThreads": 4,
+        "System.Threading.ThreadPool.MaxThreads": 25
+      }
+    }
+  }

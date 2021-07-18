@@ -1,0 +1,1 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe .\*.cs "M:\LPA\KRK780_RA02\RA_AUTOM\Personal Folders\JoKo\*.cs"
