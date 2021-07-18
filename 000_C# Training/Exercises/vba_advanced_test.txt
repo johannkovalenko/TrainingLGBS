@@ -1,0 +1,68 @@
+1) Data Management
+
+    There is a text file (data.txt) which contains data in the following form:
+
+        FirstName;LastName;Age;Salary
+        John;Wayne;30;3000
+        Catherine;De Neuve;20;5000
+
+
+    a) Write a function that reads out the whole text file and returns a string with the raw text.
+
+    b) Write a function that splits the text into lines and single values puts it into a two-dimensional array. Then transfer the whole array to an excel worksheet.
+
+        Cell A1: John
+        Cell B1: Wayne
+        Cell A2: Catherine
+        Cell B2: De Neuve
+
+        Remark: please do not omit the step of putting the data into the array.
+
+    c) Do the same as in b) but this time put the data into a collection of arrays.
+
+        CollElem1: Array(John, Wayne, 30, 3000)
+        CollElem1: Array(Catherine, De Neuve, 20, 5000)
+
+        Remark: Don't forget also to write a function that transfers the data to the worksheet.
+
+    d) Do the same as in b) but this time put the data into a collection of classes.
+
+        CollElem: ClassInstance(FirstName:John, LastName: Wayne, Age: 30, Salary:3000)
+        CollElem: ClassInstance(FirstName:Catherine, LastName: De Neuve, Age: 20, Salary:5000)
+
+        Remark: Don't forget also to write a function that transfers the data to the worksheet.
+
+    e) Do the same as in b) but this time choose your own data container, but the requirement is, that each FirstName LastName combination appears only once. In other words, if John Wayne appears a second time the line should be ignored.
+
+        Hint: Dictionary
+
+    f) Create a userform that contains 
+        two text fields: FirstName, LastName
+        two labels: Age, Salary;
+        one button
+
+        the user should enter the FirstName and LastName. After clicking the button, the labels Age and Salary should change their values respectively. (John + Wayne = 30 and 3000)
+   
+2) Rewrite common functions:
+
+    a) Write a function that does the same as CInt(), hence a function that converts a string into a number. The function receives a string and return an integer. 
+
+    Remark: also think how to react to not allowed signs, for example "334f4"
+
+    b) Write a function that does same as Split(), hence a function that receives a string, splits it according to a delimiter (let's suppose ";") and then returns an array. 
+
+3) Algorythms:
+
+    a) Write a function that receives an unsorted array, sorts the array and returns it. Decide on you own if ascending or descending.
+
+    b) Write an algorhythm that computes all prime numbers from 1 to 200
+
+4) Polymorphism:
+
+    In an environment where requirements often change or where we continously find better ways to deal with the same problems, existing code has to be changed. Interfaces can help to reduce the amount of changes that have to be done in the existing code, when we replace one part of the code. 
+
+    Exercise 3a) represents a function that we want to replace by a better one. Write code which uses an interface. 
+
+    Hint: Dependency Inversion
+
+ 

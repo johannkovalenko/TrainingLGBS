@@ -1,0 +1,124 @@
+10-week training-plan for Jarek C#:
+
+5 Levels á 2 Weeks
+	Week 1: 100% training (40 hours) (no other tasks = no excuses)
+		20 exercises (all from Marcin)
+		two case studies (one from Marcin, one from Johann)
+	Week 2: Help team with real RPA tasks to consolidate knowledge
+        in case of lack of tasks (20 additional exercises)
+
+Criteria to finish training
+    90% solved exercises (including possible additional exercises)
+    90% solved case studies
+    One final test after 10 weeks (minimum 60% required to pass)
+
+
+-----------------------
+
+Level 1: (40 godzin)
+
+    1) Metody
+        void vs non-void
+        parametry
+        return 
+    2) Pętle:
+        for 
+        foreach
+        while
+        break vs. continue
+    3) Warunkowanie:
+        if elseif else
+        && ||
+        switch
+    4) Tablice:
+        new
+        index
+        for/foreach
+    5) Łancuchy znaków:
+        Split
+        Substring
+        Replace
+        Contains
+        IndexOf
+    6) Konwersja typów:
+        string to int
+        int to string
+        string to byte[]
+        byte[] to string
+        byte to char
+    7) Operatory:
+        +=, %,
+
+    8) Wielkie znaczenie używania wielu klas/funkcji do wielorazowego użytku
+
+-----------------
+
+Level 2: (40 godzin)
+
+    1) Non-static methods
+        new
+        Constructor
+        umieszczenie w kolekcje
+    2) List:
+        new
+        Add
+        index
+        for/foreach
+        Contains
+        zagnieżdżone listy
+    3) Słownik:
+        new 
+        Add
+        foreach
+        ContainsKey
+        zagnieżdżone listy
+    4) Własne klasy i niestatyczne metody
+        umieszczenie w kolekcje
+    5) ByRef vs. ByVal
+
+-------------------
+
+Level 3: (40 godzin)
+
+    1) FileStream
+        buferowanie
+        read
+        write 
+        write append
+    2) MemoryStream
+    3) StringBuilder
+    4) Windows Forms
+        buttons
+        textfields
+        events (onclick)
+    5) Try - Catch - Finally
+    6) throw
+
+--------------------
+
+Level 4: (40 godzin)
+
+    1) Encapsulation:
+        private/public/protected
+        properties (get/set)
+    2) Polimorfizm - Dzieciczenie (extends):
+        klasa bazowa i klasa dziecicząca
+        abstract / virtual
+        override
+        this vs. base
+    3) Polimorfizm - Interfejs (implements)
+    4) SOLID
+
+---------------------
+
+Level 5: (40 godzin)
+
+    Nauka używania funkcji LGBSFunctions
+    1) UIAutomation
+    2) ADO.net
+    3) Outlook Automation
+    4) Excel Automation
+    5) PDF
+    6) HTTP Request
+	
+	

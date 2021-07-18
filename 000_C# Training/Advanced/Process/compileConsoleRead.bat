@@ -1,0 +1,2 @@
+csc consoleread.cs
+pause

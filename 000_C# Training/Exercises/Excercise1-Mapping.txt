@@ -1,0 +1,9 @@
+Zadanie:
+
+w pliku Data_Exercise1.txt jest baza danych.
+
+Proszę stwórzcie program który oblicza, ile państw sąsiednych ma każdy kraj.
+
+Uwaga: baza danych nie jest uporządkowana.
+    Kraje, jak i kraje sąsiedne się powtarzają
+    Kraja mają siebie jako kraj sąsiedny

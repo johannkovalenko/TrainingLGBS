@@ -1,0 +1,2 @@
+mainclass
+pause

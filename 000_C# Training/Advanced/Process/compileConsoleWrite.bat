@@ -1,0 +1,2 @@
+csc consolewrite.cs
+pause

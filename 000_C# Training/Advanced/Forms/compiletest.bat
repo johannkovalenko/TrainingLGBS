@@ -1,0 +1,2 @@
+csc test.cs
+pause

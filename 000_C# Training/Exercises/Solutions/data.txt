@@ -1,0 +1,4 @@
+FirstName;LastName;Age;Salary
+John;Wayne;30;3000
+Catherine;De Neuve;20;5000
+John;Wayne;24;2800

@@ -1,0 +1,4 @@
+interface IFactory
+{
+    IClass BuildClass();
+}

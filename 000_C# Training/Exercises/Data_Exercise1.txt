@@ -1,0 +1,7 @@
+Kraj;Kraj Sąsiedny
+Polska;Niemcy,Austria,Litwa,Rosja,Czechy,Austria
+Niemcy;Dania,Francja,Szwajcaria,Austria,Czechy
+Czechy;Polska,Austria
+Polska;Ukraina,Białoruś,Polska,Czechy
+Niemcy;Francja,Belgia
+
