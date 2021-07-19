@@ -1,0 +1,4 @@
+RunDllWithDotnet/MyApp/obj/*
+RunDllWithDotnet/MyApp/bin/*
+rundllwithdotnet/mydll/obj/*
+rundllwithdotnet/mydll/bin/*

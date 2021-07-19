@@ -1,3 +1,0 @@
-C:\Users\u540929\OneDrive - Lufthansa Group\johann\TL\Programming\C#\int_rpa_training\RunDllWithDotnet\bin\Debug\net5.0\publish\RunDllWithDotnet.dll
-C:\Users\u540929\OneDrive - Lufthansa Group\johann\TL\Programming\C#\int_rpa_training\RunDllWithDotnet\bin\Debug\net5.0\publish\RunDllWithDotnet.deps.json
-C:\Users\u540929\OneDrive - Lufthansa Group\johann\TL\Programming\C#\int_rpa_training\RunDllWithDotnet\bin\Debug\net5.0\publish\RunDllWithDotnet.pdb
