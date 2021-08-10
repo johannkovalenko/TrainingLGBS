@@ -2,3 +2,7 @@ RunDllWithDotnet/MyApp/obj/*
 RunDllWithDotnet/MyApp/bin/*
 rundllwithdotnet/mydll/obj/*
 rundllwithdotnet/mydll/bin/*
+Test_Aug2021/prod/obj/*
+Test_Aug2021/prod/bin/*
+Test_Aug2021/test/obj/*
+Test_Aug2021/test/bin/*
