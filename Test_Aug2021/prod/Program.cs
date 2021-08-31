@@ -4,14 +4,21 @@ using System.Collections.Generic;
 
 namespace prod
 {
-    interface Algorithm
+    public abstract class Algorithm
     {
-        bool[] Run(int maxNumber);
+        public abstract bool[] Run(int maxNumber);
+
+        public void Print(bool[] bContainer)
+        {
+            for (int i=2;i<bContainer.Length;i++)
+                if (!bContainer[i])
+                    Console.Write(i + " ");
+        }
     }
 
     public class Modulo : Algorithm
     {
-        public bool[] Run(int maxNumber)
+        public override bool[] Run(int maxNumber)
         {
             bool[] bContainer = new bool[maxNumber];
 
@@ -31,7 +38,7 @@ namespace prod
 
     public class ModuloWithSquareRoot : Algorithm
     {
-        public bool[] Run(int maxNumber)
+        public override bool[] Run(int maxNumber)
         {
             bool[] bContainer = new bool[maxNumber];
 
@@ -55,7 +62,7 @@ namespace prod
 
     public class Sieve : Algorithm
     {
-        public bool[] Run(int maxNumber)
+        public override bool[] Run(int maxNumber)
         {
             bool[] bContainer = new bool[maxNumber];
 
@@ -79,7 +86,7 @@ namespace prod
 
     public class SieveWithoutProduct : Algorithm
     {
-        public bool[] Run(int maxNumber)
+        public override bool[] Run(int maxNumber)
         {
             bool[] bContainer = new bool[maxNumber];
 
@@ -99,7 +106,7 @@ namespace prod
 
     public class SieveImproved : Algorithm
     {
-        public bool[] Run(int maxNumber)
+        public override bool[] Run(int maxNumber)
         {
             bool[] bContainer = new bool[maxNumber];
 
@@ -114,7 +121,7 @@ namespace prod
 
     public class SieveWithSquareRoot : Algorithm
     {
-        public bool[] Run(int maxNumber)
+        public override bool[] Run(int maxNumber)
         {
             bool[] bContainer = new bool[maxNumber];
 
@@ -128,16 +135,6 @@ namespace prod
         }
     }  
 
-    class Printing
-    {
-        public void Run(bool[] bContainer)
-        {
-            for (int i=2;i<bContainer.Length;i++)
-                if (!bContainer[i])
-                    Console.Write(i + " ");
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -146,8 +143,6 @@ namespace prod
 
             bool[] bContainer;
             bool print = false; // Flag, turn off when testing very large prime sequences
-
-            var printing = new Printing();
 
             var algorithms = FactoryMethod();
             
@@ -162,7 +157,7 @@ namespace prod
                 stopwatch.Stop();
 
                 if (print)
-                    printing.Run(bContainer);
+                    algorithm.Print(bContainer);
 
                 Console.WriteLine(algorithmName + ": " + stopwatch.Elapsed.TotalMilliseconds);
             }
