@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace prod
 {
-    class Modulo
+    public class Modulo
     {
         public bool[] Run(int maxNumber)
         {
@@ -23,7 +23,7 @@ namespace prod
         }
     }
 
-    class ModuloWithSquareRoot
+    public class ModuloWithSquareRoot
     {
         public bool[] Run(int maxNumber)
         {
@@ -47,7 +47,7 @@ namespace prod
         }
     }
 
-    class Sieve
+    public class Sieve
     {
         public bool[] Run(int maxNumber)
         {
@@ -71,7 +71,7 @@ namespace prod
         }
     }
 
-    class SieveWithoutProduct
+    public class SieveWithoutProduct
     {
         public bool[] Run(int maxNumber)
         {
@@ -94,7 +94,7 @@ namespace prod
         }
     }  
 
-    class SieveImproved
+    public class SieveImproved
     {
         public bool[] Run(int maxNumber)
         {
@@ -109,7 +109,7 @@ namespace prod
         }
     }  
 
-    class SieveWithSquareRoot
+    public class SieveWithSquareRoot
     {
         public bool[] Run(int maxNumber)
         {
