@@ -8,7 +8,9 @@ namespace prod
     {
         public abstract bool[] Run(int maxNumber);
 
-        public void Print(bool[] bContainer)
+        protected bool[] bContainer;
+
+        public void Print()
         {
             for (int i=2;i<bContainer.Length;i++)
                 if (!bContainer[i])
@@ -20,7 +22,7 @@ namespace prod
     {
         public override bool[] Run(int maxNumber)
         {
-            bool[] bContainer = new bool[maxNumber];
+            bContainer = new bool[maxNumber];
 
             for (int i=2;i<maxNumber;i++)
                 for (int j=2;j<i;j++)
@@ -40,7 +42,7 @@ namespace prod
     {
         public override bool[] Run(int maxNumber)
         {
-            bool[] bContainer = new bool[maxNumber];
+            bContainer = new bool[maxNumber];
 
             for (int i=2;i<maxNumber;i++)
             {
@@ -64,7 +66,7 @@ namespace prod
     {
         public override bool[] Run(int maxNumber)
         {
-            bool[] bContainer = new bool[maxNumber];
+            bContainer = new bool[maxNumber];
 
             int product = 0;
 
@@ -79,7 +81,7 @@ namespace prod
                         else
                             break;
                     }
-
+            
             return bContainer;
         }
     }
@@ -88,7 +90,7 @@ namespace prod
     {
         public override bool[] Run(int maxNumber)
         {
-            bool[] bContainer = new bool[maxNumber];
+            bContainer = new bool[maxNumber];
 
             for (int i=2;i<bContainer.Length;i++)
                 if (!bContainer[i])
@@ -99,7 +101,7 @@ namespace prod
                         else
                             break;
                     }
-
+            
             return bContainer;
         }
     }  
@@ -108,13 +110,13 @@ namespace prod
     {
         public override bool[] Run(int maxNumber)
         {
-            bool[] bContainer = new bool[maxNumber];
+            bContainer = new bool[maxNumber];
 
             for (int i=2;i<maxNumber;i++)
                 if (!bContainer[i])
                     for (int j=i+i;j<maxNumber;j+=i)
                         bContainer[j] = true;
-
+            
             return bContainer;
         }
     }  
@@ -123,14 +125,14 @@ namespace prod
     {
         public override bool[] Run(int maxNumber)
         {
-            bool[] bContainer = new bool[maxNumber];
+            bContainer = new bool[maxNumber];
 
             int root = (int)Math.Sqrt(maxNumber);
             for (int i=2;i<=root;i++)
                 if (!bContainer[i])
                     for (int j=i+i;j<maxNumber;j+=i)
                         bContainer[j] = true;
-
+            
             return bContainer;
         }
     }  
@@ -141,7 +143,6 @@ namespace prod
         {
             int maxNumber = 10000;
 
-            bool[] bContainer;
             bool print = false; // Flag, turn off when testing very large prime sequences
 
             var algorithms = FactoryMethod();
@@ -153,11 +154,11 @@ namespace prod
 
                 stopwatch.Start();
 
-                bContainer = algorithm.Run(maxNumber);
+                algorithm.Run(maxNumber);
                 stopwatch.Stop();
 
                 if (print)
-                    algorithm.Print(bContainer);
+                    algorithm.Print();
 
                 Console.WriteLine(algorithmName + ": " + stopwatch.Elapsed.TotalMilliseconds);
             }
