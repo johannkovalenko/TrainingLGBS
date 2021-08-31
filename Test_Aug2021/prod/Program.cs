@@ -149,14 +149,7 @@ namespace prod
 
             var printing = new Printing();
 
-            var algorithms = new Dictionary<string, Algorithm> {
-                {"Modulo", new Modulo()}, 
-                {"ModuloWithSquareRoot", new ModuloWithSquareRoot()}, 
-                {"Sieve", new Sieve()}, 
-                {"SieveWithoutProduct", new SieveWithoutProduct()},
-                {"SieveImproved", new SieveImproved()},
-                {"SieveWithSquareRoot", new SieveWithSquareRoot()}
-            };
+            var algorithms = FactoryMethod();
             
             foreach (string algorithmName in algorithms.Keys)
             {
@@ -173,6 +166,18 @@ namespace prod
 
                 Console.WriteLine(algorithmName + ": " + stopwatch.Elapsed.TotalMilliseconds);
             }
+        }
+
+        private static Dictionary<string, Algorithm> FactoryMethod()
+        {
+            return new Dictionary<string, Algorithm> {
+                {"Modulo", new Modulo()}, 
+                {"ModuloWithSquareRoot", new ModuloWithSquareRoot()}, 
+                {"Sieve", new Sieve()}, 
+                {"SieveWithoutProduct", new SieveWithoutProduct()},
+                {"SieveImproved", new SieveImproved()},
+                {"SieveWithSquareRoot", new SieveWithSquareRoot()}
+            };
         }
     }
 }
