@@ -3,6 +3,128 @@ using System.Diagnostics;
 
 namespace prod
 {
+    class Modulo
+    {
+        public bool[] Run(int maxNumber)
+        {
+            bool[] bContainer = new bool[maxNumber];
+
+            for (int i=2;i<maxNumber;i++)
+                for (int j=2;j<i;j++)
+                {
+                    if (i % j == 0)
+                    {
+                        bContainer[i] = true;
+                        break;
+                    }
+                }
+
+            return bContainer;
+        }
+    }
+
+    class ModuloWithSquareRoot
+    {
+        public bool[] Run(int maxNumber)
+        {
+            bool[] bContainer = new bool[maxNumber];
+
+            for (int i=2;i<maxNumber;i++)
+            {
+                int squareRoot = (int)Math.Sqrt(i);
+
+                for (int j=2;j<=squareRoot;j++)
+                {
+                    if (i % j == 0)
+                    {
+                        bContainer[i] = true;
+                        break;
+                    }
+                }
+            }
+
+            return bContainer;
+        }
+    }
+
+    class Sieve
+    {
+        public bool[] Run(int maxNumber)
+        {
+            bool[] bContainer = new bool[maxNumber];
+
+            int product = 0;
+
+            for (int i=2;i<maxNumber;i++)
+                if (!bContainer[i])
+                    for (int j=2;j<maxNumber;j++)
+                    {
+                        product = i * j;
+
+                        if (product < maxNumber)
+                            bContainer[product] = true;
+                        else
+                            break;
+                    }
+
+            return bContainer;
+        }
+    }
+
+    class SieveWithoutProduct
+    {
+        public bool[] Run(int maxNumber)
+        {
+            bool[] bContainer = new bool[maxNumber];
+
+            for (int i=0;i<bContainer.Length;i++)
+                bContainer[i] = true;
+
+            for (int i=2;i<bContainer.Length;i++)
+                if (bContainer[i])
+                    for (int j=i+i;j<bContainer.Length;j+=i)
+                    {
+                        if (j < bContainer.Length)
+                            bContainer[j] = false;
+                        else
+                            break;
+                    }
+
+            return bContainer;
+        }
+    }  
+
+    class SieveImproved
+    {
+        public bool[] Run(int maxNumber)
+        {
+            bool[] bContainer = new bool[maxNumber];
+
+            for (int i=2;i<maxNumber;i++)
+                if (!bContainer[i])
+                    for (int j=i+i;j<maxNumber;j+=i)
+                        bContainer[j] = true;
+
+            return bContainer;
+        }
+    }  
+
+    class SieveWithSquareRoot
+    {
+        public bool[] Run(int maxNumber)
+        {
+            bool[] bContainer = new bool[maxNumber];
+
+            int root = (int)Math.Sqrt(maxNumber);
+            for (int i=2;i<root;i++)
+                if (!bContainer[i])
+                    for (int j=i+i;j<maxNumber;j+=i)
+                        bContainer[j] = true;
+
+            return bContainer;
+        }
+    }  
+
     class Program
     {
         static void Main(string[] args)
@@ -22,18 +144,7 @@ namespace prod
                 switch (algorithm)
                 {
                     case "Modulo":
-                        bContainer = new bool[maxNumber];
-
-                        for (int i=2;i<maxNumber;i++)
-                            for (int j=2;j<i;j++)
-                            {
-                                if (i % j == 0)
-                                {
-                                    bContainer[i] = true;
-                                    break;
-                                }
-                            }
-
+                        bContainer = new Modulo().Run(maxNumber);
                         stopwatch.Stop();
 
                         if (print)
@@ -46,22 +157,7 @@ namespace prod
                         break;
                     
                     case "ModuloWithSquareRoot":
-                        bContainer = new bool[maxNumber];
-
-                        for (int i=2;i<maxNumber;i++)
-                        {
-                            int squareRoot = (int)Math.Sqrt(i);
-
-                            for (int j=2;j<=squareRoot;j++)
-                            {
-                                if (i % j == 0)
-                                {
-                                    bContainer[i] = true;
-                                    break;
-                                }
-                            }
-                        }
-
+                        bContainer = new ModuloWithSquareRoot().Run(maxNumber);
                         stopwatch.Stop();
 
                         if (print)
@@ -73,20 +169,7 @@ namespace prod
                         break;
                     
                     case "Sieve":
-                        bContainer = new bool[maxNumber];
-                        int product = 0;
-
-                        for (int i=2;i<maxNumber;i++)
-                            if (!bContainer[i])
-                                for (int j=2;j<maxNumber;j++)
-                                {
-                                    product = i * j;
-
-                                    if (product < maxNumber)
-                                        bContainer[product] = true;
-                                    else
-                                        break;
-                                }
+                        bContainer = new Sieve().Run(maxNumber);
 
                         stopwatch.Stop();
 
@@ -100,20 +183,7 @@ namespace prod
                         break;
                     
                     case "SieveWithoutProduct":
-                        bContainer = new bool[maxNumber];
-
-                        for (int i=0;i<bContainer.Length;i++)
-                            bContainer[i] = true;
-
-                        for (int i=2;i<bContainer.Length;i++)
-                            if (bContainer[i])
-                                for (int j=i+i;j<bContainer.Length;j+=i)
-                                {
-                                    if (j < bContainer.Length)
-                                        bContainer[j] = false;
-                                    else
-                                        break;
-                                }
+                        bContainer = new SieveWithoutProduct().Run(maxNumber);
 
                         stopwatch.Stop();
 
@@ -126,12 +196,7 @@ namespace prod
                         break;
 
                     case "SieveImproved":
-                        bContainer = new bool[maxNumber];
-                        
-                        for (int i=2;i<maxNumber;i++)
-                            if (!bContainer[i])
-                                for (int j=i+i;j<maxNumber;j+=i)
-                                    bContainer[j] = true;
+                        bContainer = new SieveImproved().Run(maxNumber);
 
                         stopwatch.Stop();
 
@@ -144,13 +209,8 @@ namespace prod
                         break;
 
                     case "SieveWithSquareRoot":
-                        bContainer = new bool[maxNumber];
-                        
-                        int root = (int)Math.Sqrt(maxNumber);
-                        for (int i=2;i<root;i++)
-                            if (!bContainer[i])
-                                for (int j=i+i;j<maxNumber;j+=i)
-                                    bContainer[j] = true;
+                        bContainer = new SieveWithSquareRoot().Run(maxNumber);
+
                         stopwatch.Stop();
 
                         if (print)
