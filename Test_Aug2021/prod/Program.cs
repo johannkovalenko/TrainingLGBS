@@ -148,78 +148,27 @@ namespace prod
 
             var printing = new Printing();
 
-            Algorithm algorithm;
+            Algorithm[] algorithms = {
+                new Modulo(), 
+                new ModuloWithSquareRoot(), 
+                new Sieve(), 
+                new SieveWithSquareRoot(),
+                new SieveImproved(),
+                new SieveWithSquareRoot()
+            };
             
-            foreach (string currentAlgorithm in new string[] {"Modulo", "ModuloWithSquareRoot", "Sieve", "SieveWithoutProduct", "SieveImproved", "SieveWithSquareRoot"})
+            foreach (Algorithm algorithm in algorithms)
             {
-                
                 Stopwatch stopwatch = new Stopwatch();
-
                 stopwatch.Start();
 
-                //Algorithms to generate prime numbers
-                switch (currentAlgorithm)
-                {
-                    case "Modulo":
-                        algorithm = new Modulo();
-                        bContainer = algorithm.Run(maxNumber);
-                        stopwatch.Stop();
+                bContainer = algorithm.Run(maxNumber);
+                stopwatch.Stop();
 
-                        if (print)
-                            printing.Run(bContainer);
+                if (print)
+                    printing.Run(bContainer);
 
-                        break;
-                    case "ModuloWithSquareRoot":
-                        algorithm = new ModuloWithSquareRoot();
-                        bContainer = algorithm.Run(maxNumber);
-                        stopwatch.Stop();
-
-                        if (print)
-                            printing.Run(bContainer);
-
-                        break;
-                    case "Sieve":
-                        algorithm = new Sieve();
-                        bContainer = algorithm.Run(maxNumber);
-                        stopwatch.Stop();
-
-                        if (print)
-                            printing.Run(bContainer);
-
-                        break;
-                    case "SieveWithoutProduct":
-                        algorithm = new SieveWithoutProduct();
-                        bContainer = algorithm.Run(maxNumber);
-
-                        stopwatch.Stop();
-                        
-                        if (print)
-                            printing.Run(bContainer);
-
-                        break;
-                    case "SieveImproved":
-                        algorithm = new SieveImproved();
-                        bContainer = algorithm.Run(maxNumber);
-
-                        stopwatch.Stop();
-
-                        if (print)
-                            printing.Run(bContainer);
-
-                        break;
-                    case "SieveWithSquareRoot":
-                        algorithm = new SieveWithSquareRoot();
-                        bContainer = algorithm.Run(maxNumber);
-
-                        stopwatch.Stop();
-
-                        if (print)
-                            printing.Run(bContainer);
-
-                        break;
-                }
-
-                Console.WriteLine(currentAlgorithm + " " + stopwatch.Elapsed.TotalMilliseconds);
+                Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
             }
         }
     }
