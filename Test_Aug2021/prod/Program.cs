@@ -77,15 +77,12 @@ namespace prod
         {
             bool[] bContainer = new bool[maxNumber];
 
-            for (int i=0;i<bContainer.Length;i++)
-                bContainer[i] = true;
-
             for (int i=2;i<bContainer.Length;i++)
-                if (bContainer[i])
+                if (!bContainer[i])
                     for (int j=i+i;j<bContainer.Length;j+=i)
                     {
                         if (j < bContainer.Length)
-                            bContainer[j] = false;
+                            bContainer[j] = true;
                         else
                             break;
                     }
@@ -116,7 +113,7 @@ namespace prod
             bool[] bContainer = new bool[maxNumber];
 
             int root = (int)Math.Sqrt(maxNumber);
-            for (int i=2;i<root;i++)
+            for (int i=2;i<=root;i++)
                 if (!bContainer[i])
                     for (int j=i+i;j<maxNumber;j+=i)
                         bContainer[j] = true;
