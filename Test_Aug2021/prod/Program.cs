@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace prod
 {
@@ -141,25 +142,27 @@ namespace prod
     {
         static void Main(string[] args)
         {
-            int maxNumber = 10;
+            int maxNumber = 10000;
 
             bool[] bContainer;
-            bool print = true; // Flag, turn off when testing very large prime sequences
+            bool print = false; // Flag, turn off when testing very large prime sequences
 
             var printing = new Printing();
 
-            Algorithm[] algorithms = {
-                new Modulo(), 
-                new ModuloWithSquareRoot(), 
-                new Sieve(), 
-                new SieveWithSquareRoot(),
-                new SieveImproved(),
-                new SieveWithSquareRoot()
+            var algorithms = new Dictionary<string, Algorithm> {
+                {"Modulo", new Modulo()}, 
+                {"ModuloWithSquareRoot", new ModuloWithSquareRoot()}, 
+                {"Sieve", new Sieve()}, 
+                {"SieveWithoutProduct", new SieveWithoutProduct()},
+                {"SieveImproved", new SieveImproved()},
+                {"SieveWithSquareRoot", new SieveWithSquareRoot()}
             };
             
-            foreach (Algorithm algorithm in algorithms)
+            foreach (string algorithmName in algorithms.Keys)
             {
                 Stopwatch stopwatch = new Stopwatch();
+                var algorithm = algorithms[algorithmName];
+
                 stopwatch.Start();
 
                 bContainer = algorithm.Run(maxNumber);
@@ -168,7 +171,7 @@ namespace prod
                 if (print)
                     printing.Run(bContainer);
 
-                Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
+                Console.WriteLine(algorithmName + ": " + stopwatch.Elapsed.TotalMilliseconds);
             }
         }
     }
