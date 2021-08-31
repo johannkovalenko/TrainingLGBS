@@ -122,14 +122,26 @@ namespace prod
         }
     }  
 
+    class Printing
+    {
+        public void Run(bool[] bContainer)
+        {
+            for (int i=2;i<bContainer.Length;i++)
+                if (!bContainer[i])
+                    Console.Write(i + " ");
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            int maxNumber = 10000;
+            int maxNumber = 10;
 
             bool[] bContainer;
-            bool print = false; // Flag, turn off when testing very large prime sequences
+            bool print = true; // Flag, turn off when testing very large prime sequences
+
+            var printing = new Printing();
 
             foreach (string algorithm in new string[] {"Modulo", "ModuloWithSquareRoot", "Sieve", "SieveWithoutProduct", "SieveImproved", "SieveWithSquareRoot"})
             {
@@ -145,77 +157,51 @@ namespace prod
                         stopwatch.Stop();
 
                         if (print)
-                        {
-                            for (int i=2;i<bContainer.Length;i++)
-                                if (!bContainer[i])
-                                    Console.Write(i + " ");
-                        }
+                            printing.Run(bContainer);
 
                         break;
-                    
                     case "ModuloWithSquareRoot":
                         bContainer = new ModuloWithSquareRoot().Run(maxNumber);
                         stopwatch.Stop();
 
                         if (print)
-                        {
-                            for (int i=2;i<bContainer.Length;i++)
-                                if (!bContainer[i])
-                                    Console.Write(i + " ");
-                        }
+                            printing.Run(bContainer);
+
                         break;
-                    
                     case "Sieve":
                         bContainer = new Sieve().Run(maxNumber);
-
                         stopwatch.Stop();
 
                         if (print)
-                        {
-                            for (int i=2;i<bContainer.Length;i++)
-                                if (!bContainer[i])
-                                    Console.Write(i + " ");
-                        }
-                        
+                            printing.Run(bContainer);
+
                         break;
-                    
                     case "SieveWithoutProduct":
                         bContainer = new SieveWithoutProduct().Run(maxNumber);
 
                         stopwatch.Stop();
-
+                        
                         if (print)
-                        {
-                            for (int i=2;i<bContainer.Length;i++)
-                                if (bContainer[i])
-                                    Console.Write(i + " ");
-                        }
-                        break;
+                            printing.Run(bContainer);
 
+                        break;
                     case "SieveImproved":
                         bContainer = new SieveImproved().Run(maxNumber);
 
                         stopwatch.Stop();
 
                         if (print)
-                        {
-                            for (int i=2;i<bContainer.Length;i++)
-                                if (!bContainer[i])
-                                    Console.Write(i + " ");
-                        }
-                        break;
+                            printing.Run(bContainer);
 
+                        break;
                     case "SieveWithSquareRoot":
                         bContainer = new SieveWithSquareRoot().Run(maxNumber);
 
                         stopwatch.Stop();
 
                         if (print)
-                        {
-                            for (int i=2;i<bContainer.Length;i++)
-                                if (!bContainer[i])
-                                    Console.Write(i + " ");
-                        }
+                            printing.Run(bContainer);
+
                         break;
                 }
 
