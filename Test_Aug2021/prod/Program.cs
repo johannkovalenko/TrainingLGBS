@@ -3,7 +3,12 @@ using System.Diagnostics;
 
 namespace prod
 {
-    public class Modulo
+    interface Algorithm
+    {
+        bool[] Run(int maxNumber);
+    }
+
+    public class Modulo : Algorithm
     {
         public bool[] Run(int maxNumber)
         {
@@ -23,7 +28,7 @@ namespace prod
         }
     }
 
-    public class ModuloWithSquareRoot
+    public class ModuloWithSquareRoot : Algorithm
     {
         public bool[] Run(int maxNumber)
         {
@@ -47,7 +52,7 @@ namespace prod
         }
     }
 
-    public class Sieve
+    public class Sieve : Algorithm
     {
         public bool[] Run(int maxNumber)
         {
@@ -71,7 +76,7 @@ namespace prod
         }
     }
 
-    public class SieveWithoutProduct
+    public class SieveWithoutProduct : Algorithm
     {
         public bool[] Run(int maxNumber)
         {
@@ -91,7 +96,7 @@ namespace prod
         }
     }  
 
-    public class SieveImproved
+    public class SieveImproved : Algorithm
     {
         public bool[] Run(int maxNumber)
         {
@@ -106,7 +111,7 @@ namespace prod
         }
     }  
 
-    public class SieveWithSquareRoot
+    public class SieveWithSquareRoot : Algorithm
     {
         public bool[] Run(int maxNumber)
         {
@@ -143,17 +148,21 @@ namespace prod
 
             var printing = new Printing();
 
-            foreach (string algorithm in new string[] {"Modulo", "ModuloWithSquareRoot", "Sieve", "SieveWithoutProduct", "SieveImproved", "SieveWithSquareRoot"})
+            Algorithm algorithm;
+            
+            foreach (string currentAlgorithm in new string[] {"Modulo", "ModuloWithSquareRoot", "Sieve", "SieveWithoutProduct", "SieveImproved", "SieveWithSquareRoot"})
             {
+                
                 Stopwatch stopwatch = new Stopwatch();
 
                 stopwatch.Start();
 
                 //Algorithms to generate prime numbers
-                switch (algorithm)
+                switch (currentAlgorithm)
                 {
                     case "Modulo":
-                        bContainer = new Modulo().Run(maxNumber);
+                        algorithm = new Modulo();
+                        bContainer = algorithm.Run(maxNumber);
                         stopwatch.Stop();
 
                         if (print)
@@ -161,7 +170,8 @@ namespace prod
 
                         break;
                     case "ModuloWithSquareRoot":
-                        bContainer = new ModuloWithSquareRoot().Run(maxNumber);
+                        algorithm = new ModuloWithSquareRoot();
+                        bContainer = algorithm.Run(maxNumber);
                         stopwatch.Stop();
 
                         if (print)
@@ -169,7 +179,8 @@ namespace prod
 
                         break;
                     case "Sieve":
-                        bContainer = new Sieve().Run(maxNumber);
+                        algorithm = new Sieve();
+                        bContainer = algorithm.Run(maxNumber);
                         stopwatch.Stop();
 
                         if (print)
@@ -177,7 +188,8 @@ namespace prod
 
                         break;
                     case "SieveWithoutProduct":
-                        bContainer = new SieveWithoutProduct().Run(maxNumber);
+                        algorithm = new SieveWithoutProduct();
+                        bContainer = algorithm.Run(maxNumber);
 
                         stopwatch.Stop();
                         
@@ -186,7 +198,8 @@ namespace prod
 
                         break;
                     case "SieveImproved":
-                        bContainer = new SieveImproved().Run(maxNumber);
+                        algorithm = new SieveImproved();
+                        bContainer = algorithm.Run(maxNumber);
 
                         stopwatch.Stop();
 
@@ -195,7 +208,8 @@ namespace prod
 
                         break;
                     case "SieveWithSquareRoot":
-                        bContainer = new SieveWithSquareRoot().Run(maxNumber);
+                        algorithm = new SieveWithSquareRoot();
+                        bContainer = algorithm.Run(maxNumber);
 
                         stopwatch.Stop();
 
@@ -205,7 +219,7 @@ namespace prod
                         break;
                 }
 
-                Console.WriteLine(algorithm + " " + stopwatch.Elapsed.TotalMilliseconds);
+                Console.WriteLine(currentAlgorithm + " " + stopwatch.Elapsed.TotalMilliseconds);
             }
         }
     }
