@@ -144,7 +144,7 @@ namespace prod
 
             bool print = false; // Flag, turn off when testing very large prime sequences
 
-            Dictionary<string, Algorithm> algorithms = FactoryMethod();
+            Dictionary<string, Algorithm> algorithms = new Strategies().Generate();
             
             foreach (string algorithmName in algorithms.Keys)
             {
@@ -161,8 +161,16 @@ namespace prod
                 Console.WriteLine(algorithmName + ": " + stopwatch.Elapsed.TotalMilliseconds);
             }
         }
+    }
 
-        private static Dictionary<string, Algorithm> FactoryMethod()
+    class Strategies
+    {
+        public Dictionary<string, Algorithm> Generate()
+        {
+            return StandardSet();
+        }
+
+        private Dictionary<string, Algorithm> StandardSet()
         {
             return new Dictionary<string, Algorithm> {
                 {"Modulo",                  new Modulo()}, 
