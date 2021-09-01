@@ -1,46 +1,65 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace test
 {
     [TestClass]
     public class UnitTest1
     {
-        private bool[] expected = {false, false, false, false, true, false, true, false, true, true, true};
+        private List<int> expected = new List<int> {2, 3, 5, 7};
 
         [TestMethod]
         public void TestModulo()
         {
-            CollectionAssert.AreEqual(expected, new prod.Modulo().Run(11));
+            var algorithm = new prod.Modulo();
+            algorithm.Run(11);
+
+            CollectionAssert.AreEqual(expected, algorithm.GetPrimeNumbers());
         }
 
         [TestMethod]
         public void TestModuloWithSquareRoot()
         {
-            CollectionAssert.AreEqual(expected, new prod.ModuloWithSquareRoot().Run(11));
+            var algorithm = new prod.ModuloWithSquareRoot();
+            algorithm.Run(11);
+
+            CollectionAssert.AreEqual(expected, algorithm.GetPrimeNumbers());
         }
 
         [TestMethod]
         public void TestSieve()
         {
-            CollectionAssert.AreEqual(expected, new prod.Sieve().Run(11));
+            var algorithm = new prod.Sieve();
+            algorithm.Run(11);
+
+            CollectionAssert.AreEqual(expected, algorithm.GetPrimeNumbers());
         }
 
         [TestMethod]
         public void TestSieveWithoutProduct()
         {
-            CollectionAssert.AreEqual(expected, new prod.SieveWithoutProduct().Run(11));
+            var algorithm = new prod.SieveWithoutProduct();
+            algorithm.Run(11);
+
+            CollectionAssert.AreEqual(expected, algorithm.GetPrimeNumbers());
         }
 
         [TestMethod]
         public void TestSieveImproved()
         {
-            CollectionAssert.AreEqual(expected, new prod.SieveImproved().Run(11));
+            var algorithm = new prod.SieveImproved();
+            algorithm.Run(11);
+
+            CollectionAssert.AreEqual(expected, algorithm.GetPrimeNumbers());
         }
 
         [TestMethod]
         public void TestSieveWithSquareRoot()
         {
-            CollectionAssert.AreEqual(expected, new prod.SieveWithSquareRoot().Run(11));
+            var algorithm = new prod.SieveWithSquareRoot();
+            algorithm.Run(11);
+
+            CollectionAssert.AreEqual(expected, algorithm.GetPrimeNumbers());
         }
     }
 }

@@ -6,7 +6,7 @@ namespace prod
 {
     public abstract class Algorithm
     {
-        public abstract bool[] Run(int maxNumber);
+        public abstract void Run(int maxNumber);
 
         protected bool[] bContainer;
 
@@ -16,11 +16,22 @@ namespace prod
                 if (!bContainer[i])
                     Console.Write(i + " ");
         }
+
+        public List<int> GetPrimeNumbers()
+        {
+            var output = new List<int>();
+
+            for (int i=2;i<bContainer.Length;i++)
+                if (!bContainer[i])
+                    output.Add(i);
+
+            return output;            
+        }
     }
 
     public class Modulo : Algorithm
     {
-        public override bool[] Run(int maxNumber)
+        public override void Run(int maxNumber)
         {
             bContainer = new bool[maxNumber];
 
@@ -33,14 +44,12 @@ namespace prod
                         break;
                     }
                 }
-
-            return bContainer;
         }
     }
 
     public class ModuloWithSquareRoot : Algorithm
     {
-        public override bool[] Run(int maxNumber)
+        public override void Run(int maxNumber)
         {
             bContainer = new bool[maxNumber];
 
@@ -57,14 +66,12 @@ namespace prod
                     }
                 }
             }
-
-            return bContainer;
         }
     }
 
     public class Sieve : Algorithm
     {
-        public override bool[] Run(int maxNumber)
+        public override void Run(int maxNumber)
         {
             bContainer = new bool[maxNumber];
 
@@ -81,14 +88,12 @@ namespace prod
                         else
                             break;
                     }
-            
-            return bContainer;
         }
     }
 
     public class SieveWithoutProduct : Algorithm
     {
-        public override bool[] Run(int maxNumber)
+        public override void Run(int maxNumber)
         {
             bContainer = new bool[maxNumber];
 
@@ -101,14 +106,12 @@ namespace prod
                         else
                             break;
                     }
-            
-            return bContainer;
         }
     }  
 
     public class SieveImproved : Algorithm
     {
-        public override bool[] Run(int maxNumber)
+        public override void Run(int maxNumber)
         {
             bContainer = new bool[maxNumber];
 
@@ -116,14 +119,12 @@ namespace prod
                 if (!bContainer[i])
                     for (int j=i+i;j<maxNumber;j+=i)
                         bContainer[j] = true;
-            
-            return bContainer;
         }
     }  
 
     public class SieveWithSquareRoot : Algorithm
     {
-        public override bool[] Run(int maxNumber)
+        public override void Run(int maxNumber)
         {
             bContainer = new bool[maxNumber];
 
@@ -132,8 +133,6 @@ namespace prod
                 if (!bContainer[i])
                     for (int j=i+i;j<maxNumber;j+=i)
                         bContainer[j] = true;
-            
-            return bContainer;
         }
     }  
 
@@ -145,7 +144,7 @@ namespace prod
 
             bool print = false; // Flag, turn off when testing very large prime sequences
 
-            var algorithms = FactoryMethod();
+            Dictionary<string, Algorithm> algorithms = FactoryMethod();
             
             foreach (string algorithmName in algorithms.Keys)
             {
@@ -153,7 +152,6 @@ namespace prod
                 var algorithm = algorithms[algorithmName];
 
                 stopwatch.Start();
-
                 algorithm.Run(maxNumber);
                 stopwatch.Stop();
 
@@ -167,12 +165,12 @@ namespace prod
         private static Dictionary<string, Algorithm> FactoryMethod()
         {
             return new Dictionary<string, Algorithm> {
-                {"Modulo", new Modulo()}, 
-                {"ModuloWithSquareRoot", new ModuloWithSquareRoot()}, 
-                {"Sieve", new Sieve()}, 
-                {"SieveWithoutProduct", new SieveWithoutProduct()},
-                {"SieveImproved", new SieveImproved()},
-                {"SieveWithSquareRoot", new SieveWithSquareRoot()}
+                {"Modulo",                  new Modulo()}, 
+                {"ModuloWithSquareRoot",    new ModuloWithSquareRoot()}, 
+                {"Sieve",                   new Sieve()}, 
+                {"SieveWithoutProduct",     new SieveWithoutProduct()},
+                {"SieveImproved",           new SieveImproved()},
+                {"SieveWithSquareRoot",     new SieveWithSquareRoot()}
             };
         }
     }
