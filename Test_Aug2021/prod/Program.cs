@@ -170,6 +170,7 @@ namespace prod
     {
         public static int maxNumber = 10000;
         public static bool print = false;
+        public static string set = "Reversed";
     }
 
     class MyStopwatch : Stopwatch
@@ -206,7 +207,15 @@ namespace prod
 
         public Dictionary<string, Algorithm> Generate()
         {
-            return StandardSet();
+            switch (Config.set)
+            {
+                case "Standard":
+                    return StandardSet();
+                case "Reversed":
+                    return ReversedSet();
+                default:
+                    return StandardSet();
+            }
         }
 
         private Dictionary<string, Algorithm> StandardSet()
@@ -218,6 +227,18 @@ namespace prod
                 {"SieveWithoutProduct",     new SieveWithoutProduct(maxNumber)},
                 {"SieveImproved",           new SieveImproved(maxNumber)},
                 {"SieveWithSquareRoot",     new SieveWithSquareRoot(maxNumber)}
+            };
+        }
+
+        private Dictionary<string, Algorithm> ReversedSet()
+        {
+            return new Dictionary<string, Algorithm> {
+                {"SieveWithSquareRoot",     new SieveWithSquareRoot(maxNumber)},
+                {"SieveImproved",           new SieveImproved(maxNumber)},
+                {"SieveWithoutProduct",     new SieveWithoutProduct(maxNumber)},
+                {"Sieve",                   new Sieve(maxNumber)},
+                {"ModuloWithSquareRoot",    new ModuloWithSquareRoot(maxNumber)}, 
+                {"Modulo",                  new Modulo(maxNumber)} 
             };
         }
     }
