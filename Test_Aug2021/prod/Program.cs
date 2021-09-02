@@ -148,11 +148,7 @@ namespace prod
     {
         static void Main(string[] args)
         {
-            int maxNumber = 10000;
-
-            bool print = false; // Flag, turn off when testing very large prime sequences
-
-            Dictionary<string, Algorithm> algorithms = new Strategies(maxNumber).Generate();
+            Dictionary<string, Algorithm> algorithms = new Strategies(Config.maxNumber).Generate();
 
             var myStopwatch = new MyStopwatch();
             
@@ -164,12 +160,18 @@ namespace prod
                 algorithm.Run();
                 myStopwatch.StopAndRecord(algorithmName);
 
-                if (print)
+                if (Config.print)
                     algorithm.Print();
             }
 
             myStopwatch.Print();
         }
+    }
+
+    class Config
+    {
+        public static int maxNumber = 10000;
+        public static bool print = false;
     }
 
     class MyStopwatch : Stopwatch
