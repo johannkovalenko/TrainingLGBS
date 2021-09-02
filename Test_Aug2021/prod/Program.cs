@@ -6,9 +6,16 @@ namespace prod
 {
     public abstract class Algorithm
     {
-        public abstract void Run(int maxNumber);
-
         protected bool[] bContainer;
+        protected int maxNumber;
+
+        public Algorithm(int maxNumber)
+        {
+            this.maxNumber = maxNumber;
+            bContainer = new bool[maxNumber];
+        }
+
+        public abstract void Run();
 
         public void Print()
         {
@@ -31,10 +38,10 @@ namespace prod
 
     public class Modulo : Algorithm
     {
-        public override void Run(int maxNumber)
-        {
-            bContainer = new bool[maxNumber];
+        public Modulo(int maxNumber) : base(maxNumber) {}
 
+        public override void Run()
+        {
             for (int i=2;i<maxNumber;i++)
                 for (int j=2;j<i;j++)
                 {
@@ -49,10 +56,10 @@ namespace prod
 
     public class ModuloWithSquareRoot : Algorithm
     {
-        public override void Run(int maxNumber)
+        public ModuloWithSquareRoot(int maxNumber) : base(maxNumber) {}
+        
+        public override void Run()
         {
-            bContainer = new bool[maxNumber];
-
             for (int i=2;i<maxNumber;i++)
             {
                 int squareRoot = (int)Math.Sqrt(i);
@@ -71,10 +78,10 @@ namespace prod
 
     public class Sieve : Algorithm
     {
-        public override void Run(int maxNumber)
-        {
-            bContainer = new bool[maxNumber];
+        public Sieve(int maxNumber) : base(maxNumber) {}
 
+        public override void Run()
+        {
             int product = 0;
 
             for (int i=2;i<maxNumber;i++)
@@ -93,10 +100,10 @@ namespace prod
 
     public class SieveWithoutProduct : Algorithm
     {
-        public override void Run(int maxNumber)
-        {
-            bContainer = new bool[maxNumber];
+        public SieveWithoutProduct(int maxNumber) : base(maxNumber) {}
 
+        public override void Run()
+        {
             for (int i=2;i<bContainer.Length;i++)
                 if (!bContainer[i])
                     for (int j=i+i;j<bContainer.Length;j+=i)
@@ -111,10 +118,10 @@ namespace prod
 
     public class SieveImproved : Algorithm
     {
-        public override void Run(int maxNumber)
-        {
-            bContainer = new bool[maxNumber];
+        public SieveImproved(int maxNumber) : base(maxNumber) {}
 
+        public override void Run()
+        {
             for (int i=2;i<maxNumber;i++)
                 if (!bContainer[i])
                     for (int j=i+i;j<maxNumber;j+=i)
@@ -124,10 +131,10 @@ namespace prod
 
     public class SieveWithSquareRoot : Algorithm
     {
-        public override void Run(int maxNumber)
-        {
-            bContainer = new bool[maxNumber];
+        public SieveWithSquareRoot(int maxNumber) : base(maxNumber) {}
 
+        public override void Run()
+        {
             int root = (int)Math.Sqrt(maxNumber);
             for (int i=2;i<=root;i++)
                 if (!bContainer[i])
@@ -144,7 +151,7 @@ namespace prod
 
             bool print = false; // Flag, turn off when testing very large prime sequences
 
-            Dictionary<string, Algorithm> algorithms = new Strategies().Generate();
+            Dictionary<string, Algorithm> algorithms = new Strategies(maxNumber).Generate();
             
             foreach (string algorithmName in algorithms.Keys)
             {
@@ -152,7 +159,7 @@ namespace prod
                 var algorithm = algorithms[algorithmName];
 
                 stopwatch.Start();
-                algorithm.Run(maxNumber);
+                algorithm.Run();
                 stopwatch.Stop();
 
                 if (print)
@@ -165,6 +172,13 @@ namespace prod
 
     class Strategies
     {
+        private int maxNumber;
+
+        public Strategies(int maxNumber)
+        {
+            this.maxNumber = maxNumber;
+        }
+
         public Dictionary<string, Algorithm> Generate()
         {
             return StandardSet();
@@ -173,12 +187,12 @@ namespace prod
         private Dictionary<string, Algorithm> StandardSet()
         {
             return new Dictionary<string, Algorithm> {
-                {"Modulo",                  new Modulo()}, 
-                {"ModuloWithSquareRoot",    new ModuloWithSquareRoot()}, 
-                {"Sieve",                   new Sieve()}, 
-                {"SieveWithoutProduct",     new SieveWithoutProduct()},
-                {"SieveImproved",           new SieveImproved()},
-                {"SieveWithSquareRoot",     new SieveWithSquareRoot()}
+                {"Modulo",                  new Modulo(maxNumber)}, 
+                {"ModuloWithSquareRoot",    new ModuloWithSquareRoot(maxNumber)}, 
+                {"Sieve",                   new Sieve(maxNumber)}, 
+                {"SieveWithoutProduct",     new SieveWithoutProduct(maxNumber)},
+                {"SieveImproved",           new SieveImproved(maxNumber)},
+                {"SieveWithSquareRoot",     new SieveWithSquareRoot(maxNumber)}
             };
         }
     }
