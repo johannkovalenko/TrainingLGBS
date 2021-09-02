@@ -152,16 +152,14 @@ namespace prod
 
             var myStopwatch = new MyStopwatch();
             
-            foreach (string algorithmName in algorithms.Keys)
+            foreach (KeyValuePair<string, Algorithm> algorithm in algorithms)
             {
-                var algorithm = algorithms[algorithmName];
-
                 myStopwatch.Start();
-                algorithm.Run();
-                myStopwatch.StopAndRecord(algorithmName);
+                algorithm.Value.Run();
+                myStopwatch.StopAndRecord(algorithm.Key);
 
                 if (Config.print)
-                    algorithm.Print();
+                    algorithm.Value.Print();
             }
 
             myStopwatch.Print();
