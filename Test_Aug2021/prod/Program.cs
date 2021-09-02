@@ -23,6 +23,8 @@ namespace prod
             for (int i=2;i<bContainer.Length;i++)
                 if (!bContainer[i])
                     Console.Write(i + " ");
+            
+            Console.WriteLine();
         }
 
         public List<int> GetPrimeNumbers()
@@ -148,7 +150,9 @@ namespace prod
     {
         static void Main(string[] args)
         {
-            Dictionary<string, Algorithm> algorithms = new Strategies(Config.maxNumber).Generate();
+            var config = new Config(args);
+
+            Dictionary<string, Algorithm> algorithms = new Strategies(config.maxNumber).Generate(config.set);
 
             var myStopwatch = new MyStopwatch();
             
@@ -158,7 +162,7 @@ namespace prod
                 algorithm.Value.Run();
                 myStopwatch.StopAndRecord(algorithm.Key);
 
-                if (Config.print)
+                if (config.print)
                     algorithm.Value.Print();
             }
 
@@ -168,9 +172,25 @@ namespace prod
 
     class Config
     {
-        public static int maxNumber = 10000;
-        public static bool print = false;
-        public static string set = "Reversed";
+        public readonly int maxNumber;
+        public readonly bool print;
+        public readonly string set;
+
+        public Config(string[] args)
+        {
+            maxNumber = 10000;
+            print = false;
+            set = "standard";
+            
+            if (args.Length > 0)
+                int.TryParse(args[0], out maxNumber);
+
+            if (args.Length > 1)
+                set = args[1].ToLower();
+
+            if (args.Length > 2)
+                bool.TryParse(args[2], out print);
+        }
     }
 
     class MyStopwatch : Stopwatch
@@ -205,13 +225,13 @@ namespace prod
             this.maxNumber = maxNumber;
         }
 
-        public Dictionary<string, Algorithm> Generate()
+        public Dictionary<string, Algorithm> Generate(string set)
         {
-            switch (Config.set)
+            switch (set)
             {
-                case "Standard":
+                case "standard":
                     return StandardSet();
-                case "Reversed":
+                case "reversed":
                     return ReversedSet();
                 default:
                     return StandardSet();
