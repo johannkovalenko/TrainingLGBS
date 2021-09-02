@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Text;
 
 namespace prod
 {
@@ -152,21 +153,45 @@ namespace prod
             bool print = false; // Flag, turn off when testing very large prime sequences
 
             Dictionary<string, Algorithm> algorithms = new Strategies(maxNumber).Generate();
+
+            var myStopwatch = new MyStopwatch();
             
             foreach (string algorithmName in algorithms.Keys)
             {
-                Stopwatch stopwatch = new Stopwatch();
                 var algorithm = algorithms[algorithmName];
 
-                stopwatch.Start();
+                myStopwatch.Start();
                 algorithm.Run();
-                stopwatch.Stop();
+                myStopwatch.StopAndRecord(algorithmName);
 
                 if (print)
                     algorithm.Print();
-
-                Console.WriteLine(algorithmName + ": " + stopwatch.Elapsed.TotalMilliseconds);
             }
+
+            myStopwatch.Print();
+        }
+    }
+
+    class MyStopwatch : Stopwatch
+    {
+        private Stopwatch stopwatch = new Stopwatch();
+        private StringBuilder sb = new StringBuilder();
+
+        public new void Start()
+        {
+            stopwatch.Reset();
+            stopwatch.Start();
+        }
+
+        public void StopAndRecord(string algorithmName)
+        {
+            stopwatch.Stop();
+            sb.Append(algorithmName + ": " + stopwatch.Elapsed.TotalMilliseconds + "\r\n");
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(sb.ToString());
         }
     }
 
