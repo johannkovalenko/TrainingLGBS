@@ -1,0 +1,16 @@
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.csprojAssemblyReference.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.AssemblyInfoInputs.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.AssemblyInfo.cs
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.csproj.CoreCompileInputs.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\bin\Debug\net5.0\Session2.exe
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\bin\Debug\net5.0\Session2.deps.json
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\bin\Debug\net5.0\Session2.runtimeconfig.json
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\bin\Debug\net5.0\Session2.runtimeconfig.dev.json
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\bin\Debug\net5.0\Session2.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\bin\Debug\net5.0\ref\Session2.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\bin\Debug\net5.0\Session2.pdb
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\ref\Session2.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.pdb
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session2\obj\Debug\net5.0\Session2.genruntimeconfig.cache
