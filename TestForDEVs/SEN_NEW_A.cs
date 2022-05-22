@@ -1,106 +1,79 @@
-// What design pattern is shown below?
-// Why did the author use an Abstract Class for the class "Factory" and not an Interface?
-// What is the sense of using this design pattern?
-// Please explain the difference in the abstract layer between "abstract class Factory" and "interface Step1/Step2"
-
+// Question 1: Which SOLID principle is breached here?
+// Question 2: Is this rather a Factory or rather a Strategy?
+// Task 3: Assess how well the Open-Closed principle is fulfilled?
 
 using System;
+using System.Collections.Generic;
 
-class SEN_NEW_A
+public class SEN_NEW_A
 {
     public void Run()
     {
-        bool mode = false;
-        Factory factory = GetFactory(mode);
-        
-        factory.step1.Run();
-        factory.step2.Run();
-    }
-    
-    private Factory GetFactory(bool mode)
-    {
-        switch (mode)
+        List<Bird> birds = Generate();
+
+        foreach (Bird bird in birds)
         {
-            case true:
-                return new FactoryProd();
-            default:
-                return new FactoryTest();
+            bird.Walk();
+            bird.Fly();
         }
     }
-}
 
-abstract class Factory
-{
-    public Step1 step1;
-    public Step2 step2;
-}
-
-interface Step1
-{
-    void Run();
-}
-
-interface Step2
-{
-    void Run();
-}
-
-class FactoryProd : Factory
-{
-    public FactoryProd()
+    private List<Bird> Generate()
     {
-        base.step1 = new Step1Prod();
-        base.step2 = new Step2Prod();
+        return new List<Bird> ()
+        {
+            new Sparrow(),
+            new Mockingbird(),
+            new Sparrow(),
+            new Penguin(),
+            new Penguin(),
+            new Mockingbird()
+        };
     }
 }
 
-class FactoryTest : Factory
+interface Bird
 {
-    public FactoryTest()
+    void Walk();
+    void Fly();
+}
+
+class Sparrow : Bird
+{
+    public void Walk()
     {
-        base.step1 = new Step1Test2();
-        base.step2 = new Step2Prod();
+        Console.WriteLine("Sparrow walks");
+    }
+
+    public void Fly()
+    {
+        Console.WriteLine("Sparrow flies");
     }
 }
 
-class Step1Prod : Step1
+class Mockingbird : Bird
 {
-    public void Run()
+    public void Walk()
     {
-        Console.WriteLine("Step1Prod");
+        Console.WriteLine("Mockingbird walks");
+    }
+
+    public void Fly()
+    {
+        Console.WriteLine("Mockingbird flies");
     }
 }
 
-class Step2Prod : Step2
+class Penguin : Bird
 {
-    public void Run()
+    public void Walk()
     {
-        Console.WriteLine("Step2Prod");
+        Console.WriteLine("Penguin walks");
+    }
+
+    public void Fly()
+    {
+        Console.WriteLine("Penguin can't fly");
     }
 }
 
-
-
-class Step1Test : Step1
-{
-    public void Run()
-    {
-        Console.WriteLine("Step1Test");
-    }
-}
-
-class Step1Test2 : Step1
-{
-    public void Run()
-    {
-        Console.WriteLine("Step1Test2");
-    }
-}
-
-class Step2Test : Step2
-{
-    public void Run()
-    {
-        Console.WriteLine("Step2Test");
-    }
-}

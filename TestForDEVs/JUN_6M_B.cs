@@ -1,82 +1,41 @@
-// What values will be displayed?
+/* This programme prints:
+2 4 6
+2 4 6
+2 4 6
+
+which is clearly an unintended behaviour. Repair the programme and explain the error.
+*/
 
 using System;
 using System.Collections.Generic;
 
-public class JUN_6M_B
+class JUN_6M_B
 {
+    private List<int[]> data = new List<int[]>();
+
     public void Run()
     {
-        int     age             = 30;
-        int[]   ages           = {30};
-
-        string  name            = "Paul";
-
-        var     agesDict        = new Dictionary<string, int> ();
-        agesDict["Mike"]        = 30;
-        
-        var     agesDictCopy    = new Dictionary<string, int> (agesDict);
-        agesDict["Bill"]        = 50;
-
-        var     mike            = new Employee(30);
-
-        var employees           = new Dictionary<string, Employee>();
-        employees["Mike"]       = mike;
-
-        var employeesCopy       = new Dictionary<string, Employee>(employees);
-
-        employees["Bill"]       = new Employee(50);
-
-        var     point           = new Point(30, 30);
-
-        Change(name, age, ages, agesDict, mike, point);
-
-        Console.WriteLine("Int:        " + age);
-        Console.WriteLine("String:     " + name);
-        Console.WriteLine("Array:      " + ages[0]);
-        Console.WriteLine("CustomClass " + mike.age);
-        Console.WriteLine("Dict1:      " + agesDict["Mike"]);
-        Console.WriteLine("Dict1 Copy: " + agesDictCopy["Mike"]);
-        Console.WriteLine("Count1:     " + agesDict.Count);
-        Console.WriteLine("Count1Copy: " + agesDictCopy.Count);
-        Console.WriteLine("Dict2:      " + employees["Mike"].age);
-        Console.WriteLine("Dict2Copy:  " + employeesCopy["Mike"].age);
-        Console.WriteLine("Count2:     " + employees.Count);
-        Console.WriteLine("Count2Copy: " + employeesCopy.Count);
-        Console.WriteLine("Struct:     " + point.x);
+        Fill();
+        Print();
     }
 
-    private void Change(string name, int age, int[] ages, Dictionary<string, int> agesDict, Employee mike, Point point)
+    private void Fill()
     {
-        age = 40;
-        name = "Mike";
-        ages[0] = 40;
-        agesDict["Mike"] = 40;
-        mike.age = 40;
-        point.x = 40;
-    }
+        var set = new int[3];
 
-    private class Employee
-    {
-        public int age;
-        
-        public Employee(int age)
+        for (int i=0; i<3; i++)
         {
-            this.age = age;
+            set[0] = i;
+            set[1] = i*2;
+            set[2] = i*3;
+
+            data.Add(set);
         }
     }
-    
-    private struct Point
-    {
-        public int x;
-        public int y;
 
-        public Point(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
+    private void Print()
+    {
+        foreach (int[] set in data)
+            Console.WriteLine(set[0] + " " + set[1] + " " + set[2]);
     }
 }
-
-

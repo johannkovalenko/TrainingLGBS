@@ -7,6 +7,8 @@ using System.Collections.Generic;
 
 public class JUN_6M_A
 {
+    private string rawData = "Paul;30;1200,00;false|Mike;20;433,33;true|Joe;59;3332,12;false"; 
+    
     private List<string[]> employees = new List<string[]>();
     
     public void Run()
@@ -18,8 +20,13 @@ public class JUN_6M_A
 
     private void Read()
     {
-        foreach (string[] employee in rawData)
-            employees.Add(employee);
+        string[] lines = rawData.Split('|');
+
+        foreach (string line in lines)
+        {
+            string[] split = line.Split(';');
+            employees.Add(split);
+        }
     }
 
     private void Add()
@@ -49,11 +56,4 @@ public class JUN_6M_A
 
         }
     }
-
-    private string[][] rawData = 
-    {
-        new string[] { "Paul", "30", "1200,00", "false" }, 
-        new string[] { "Mike", "20", "433,33", "true" },
-        new string[] { "Joe", "59", "3332,12", "false" }
-    };
 }
