@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\onehundredlargestpolishcities\\prod\\onehundredlargestpolishcities.csproj": {}
+    "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\OneHundredLargestPolishCities\\prod\\onehundredlargestpolishcities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\onehundredlargestpolishcities\\prod\\onehundredlargestpolishcities.csproj": {
+    "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\OneHundredLargestPolishCities\\prod\\onehundredlargestpolishcities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\onehundredlargestpolishcities\\prod\\onehundredlargestpolishcities.csproj",
+        "projectUniqueName": "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\OneHundredLargestPolishCities\\prod\\onehundredlargestpolishcities.csproj",
         "projectName": "onehundredlargestpolishcities",
-        "projectPath": "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\onehundredlargestpolishcities\\prod\\onehundredlargestpolishcities.csproj",
+        "projectPath": "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\OneHundredLargestPolishCities\\prod\\onehundredlargestpolishcities.csproj",
         "packagesPath": "C:\\Users\\u540929\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\onehundredlargestpolishcities\\prod\\obj\\",
+        "outputPath": "C:\\Users\\u540929\\OneDrive - Lufthansa Group\\johann\\TL\\Programming\\TrainingLGBS\\games\\OneHundredLargestPolishCities\\prod\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\u540929\\AppData\\Roaming\\NuGet\\NuGet.Config"

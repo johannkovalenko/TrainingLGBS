@@ -4,38 +4,69 @@ using System.Collections.Generic;
 
 class Game
 {
-    Dictionary<string, bool> cities = new Dictionary<string, bool>();
+    Dictionary<string, Dictionary<string, bool>> cities = new Dictionary<string, Dictionary<string, bool>>();
+
+    public Game()
+    {
+        Dictionary<string, string> countries = new Dictionary<string, string>() 
+        {
+            {"Poland", "database.txt"},
+            {"France", "france.txt"},
+            {"UK", "uk.txt"},
+            {"Germany", "germany.txt"}
+        };
+
+        foreach (string country in countries.Keys)
+        {
+            var perCountry = new Dictionary<string, bool>();
+
+            string[] rawCities = File.ReadAllLines(countries[country]);
+
+            foreach (string rawCity in rawCities)
+                perCountry.Add(Clean(rawCity), false);
+
+            cities.Add(country, perCountry);
+        }
+    }   
+
     public void Run()
     {
+        Console.WriteLine("Enter country:");
         
-        string[] rawCities = File.ReadAllLines("database.txt");
+        foreach (string choice in cities.Keys)
+            Console.WriteLine(choice);
 
-        foreach (string rawCity in rawCities)
-            cities.Add(Clean(rawCity), false);
+        string country = Console.ReadLine();
+
+        if (!cities.ContainsKey(country))
+        {
+            Console.WriteLine("Country does not exist");
+            return;
+        }
 
         int counter = 0;
-        int numberOfCities = cities.Count;
+        int numberOfCities = cities[country].Count;
 
+        Console.WriteLine("Enter city:");
         while(counter < numberOfCities)
         {
-            Console.WriteLine("Enter City:");
             string answer = Clean(Console.ReadLine());
 
             if (answer.ToLower() == "exit")
                 break;
             else if (answer.ToLower() == "print")
             {
-                PrintMissing();
+                PrintMissing(country);
                 break;
             }
 
-            if (!cities.ContainsKey(answer))
+            if (!cities[country].ContainsKey(answer))
                 Console.WriteLine("City not in database.");
-            else if (cities[answer] == true)
+            else if (cities[country][answer] == true)
                 Console.WriteLine("City already entered");
             else
             {
-                cities[answer] = true;
+                cities[country][answer] = true;
                 counter++;
                 Console.Write(counter + " of " + numberOfCities + " correctly guessed.\t");
             }
@@ -52,18 +83,20 @@ class Game
         .Replace("ź", "z").Replace("Ź", "Z")
         .Replace("ć", "c").Replace("Ć", "C")
         .Replace("ł", "l").Replace("Ł", "L")
-        .Replace("ą", "a").Replace("ę", "e");
+        .Replace("ą", "a").Replace("ę", "e")
+        .Replace("É", "E").Replace("é", "e")
+        .Replace("è", "e").Replace("î", "i");
     }
 
-    public void PrintMissing()
+    public void PrintMissing(string country)
     {
         int counter = 0;
 
-        foreach (string city in cities.Keys)
+        foreach (string city in cities[country].Keys)
         {
             counter++;
 
-            if (!cities[city])
+            if (!cities[country][city])
                 Console.WriteLine(counter + "\t" + city);
         }
     }
@@ -73,10 +106,14 @@ class Game
 // 100 Polish cities in a list
 // Program that runs until all 100 cities will be entered.
 // Programme in command line
-// Replace polish signs and case
+// Replace polish signs and case, but leave original to print it
 // Exit condition
 // Print missing and exit programme (city and position)
 // Rerun game without exiting the programme
 // Refactoring: database to be loaded only once
 // Accept also 
 // Help mode: add Wojevodeship Information (m of n in woj. O)
+
+// Extend: cities of other countries
+// Extend: statistics: country, who many, highest position of not known
+// Extend: add population, count how many percent guess was off actual population
