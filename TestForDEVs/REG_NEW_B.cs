@@ -6,7 +6,7 @@
 // Every Employee has 2 properties (name and age)
 
 // We want a data structure that allows us:
-// To display the name and age of all employees of team x in tower y
+// To display the name and age of all employees of team x in tower y (x and y are chosen by the user)
 
 // Task: declare this data structure
 // Hints: nesting, dictionary, list, custom class

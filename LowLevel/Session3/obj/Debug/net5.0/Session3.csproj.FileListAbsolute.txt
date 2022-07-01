@@ -1,0 +1,16 @@
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\bin\Debug\net5.0\Session3.exe
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\bin\Debug\net5.0\Session3.deps.json
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\bin\Debug\net5.0\Session3.runtimeconfig.json
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\bin\Debug\net5.0\Session3.runtimeconfig.dev.json
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\bin\Debug\net5.0\Session3.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\bin\Debug\net5.0\ref\Session3.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\bin\Debug\net5.0\Session3.pdb
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.csprojAssemblyReference.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.AssemblyInfoInputs.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.AssemblyInfo.cs
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.csproj.CoreCompileInputs.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\ref\Session3.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.pdb
+C:\Users\johan\OneDrive\Dokumente\Programming\Projects\TrainingLGBS\LowLevel\Session3\obj\Debug\net5.0\Session3.genruntimeconfig.cache

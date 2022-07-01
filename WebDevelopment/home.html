@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <style>
+            body
+            {
+                /* background-color: brown; */
+                background-image: url(azuleijos.jpg);
+            }
+
+            td, th
+            {
+                border: 1pt solid black;
+            }
+
+            td.one
+            {
+                background-color:chartreuse;
+            }
+
+            td.two
+            {
+                background-color:coral;
+            }
+
+            th 
+            { 
+                background-color: red;  /* !important */
+            }
+
+            #unique
+            {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+        </style>
+        <script>
+            function HelloWorld()
+            {
+                alert('Hello World');
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id=unique>Hello world</h1>
+        <h6>Hello LGBS</h6>
+        <p>Hello</p>
+        <!-- <br> -->
+        <div>World</div>
+        
+        <table>
+            <tr onmouseover=HelloWorld()>
+                <!-- <th style=background-color:blue;>Name</th><th>Age</th><th>Salary</th> -->
+                <th>Name</th><th>Age</th><th>Salary</th>
+            </tr>
+            <tr>
+                <td class=one>John</td><td class=one>35</td><td class=one>1000</td>
+            </tr>
+            <tr>
+                <td class=two>Caroline</td><td class=two>32</td><td class=two>1000</td>
+            </tr>
+            <tr>
+                <td class=one>John</td><td class=one>35</td><td class=one>1000</td>
+            </tr>
+            <tr>
+                <td class=two>Caroline</td><td class=two>32</td><td class=two>1000</td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+
+
